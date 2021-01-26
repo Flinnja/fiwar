@@ -1,6 +1,16 @@
 class MovementsController < ApplicationController
   before_action :set_movement, only: %i[ show edit update destroy ]
 
+  def kiosk
+    @movements = Movement.all
+  end
+
+  def foldback
+    @movements = Movement.all
+  end
+
+  # STANDARD ROUTES
+
   # GET /movements or /movements.json
   def index
     @movements = Movement.all
