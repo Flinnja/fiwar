@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :movements do
+  	get "order" => "movements#order"
   	collection do
 	  	get "kiosk" => "movements#kiosk"
 	  	get "foldback" => "movements#foldback"

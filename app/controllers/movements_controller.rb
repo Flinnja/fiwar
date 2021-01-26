@@ -9,6 +9,11 @@ class MovementsController < ApplicationController
     @movements = Movement.all
   end
 
+  def order
+    puts (params[:movement_id])
+    ActionCable.server.broadcast "orders", message = (params[:movement_id])
+  end
+
   # STANDARD ROUTES
 
   # GET /movements or /movements.json

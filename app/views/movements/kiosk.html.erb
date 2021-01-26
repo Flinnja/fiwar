@@ -20,7 +20,7 @@
         <td><%= movement.price %></td>
         <td><%= movement.time %></td>
         <td><%= movement.description %></td>
-        <td><%= link_to 'Order', movement %></td>
+        <td><%= link_to 'Order', movement_order_path(movement.id), remote: true %></td>
       </tr>
     <% end %>
   </tbody>
