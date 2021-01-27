@@ -7,6 +7,20 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import "jquery"
+
+import ordersChannel from "../channels/orders_channel";
+
+$(document).on('turbolinks:load', function () {
+  $("form").on('submit', function(e){
+    e.preventDefault();
+    let message = $('#message').val();
+    if (message.length > 0) {
+      chatRoomChannel.speak(message);
+      $('#message').val('')
+    }
+  });
+})
 
 Rails.start()
 Turbolinks.start()

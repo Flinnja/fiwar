@@ -10,8 +10,8 @@ class MovementsController < ApplicationController
   end
 
   def order
-    puts (params[:movement_id])
-    ActionCable.server.broadcast "orders", message = (params[:movement_id])
+    @movement = Movement.find(params[:movement_id])
+    ActionCable.server.broadcast "orders", message = (@movement.name)
   end
 
   # STANDARD ROUTES

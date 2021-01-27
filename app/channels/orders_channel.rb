@@ -1,5 +1,5 @@
 class OrdersChannel < ApplicationCable::Channel
 	def subscribed
-		stream from "orders"
+		stream_from "orders_channel"
 	end
 end
