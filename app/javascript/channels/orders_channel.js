@@ -11,8 +11,8 @@ const ordersChannel = consumer.subscriptions.create("OrdersChannel", {
   },
 
   received(data) {
-    $('#order-reciever').append('<p class="received"> ' + data.message + '</p>');
-    console.log ("received message: " + data.message);
+    $('#order-reciever').append('<p class="received"> ' + data + '</p>');
+    console.log ("received message: " + data);
   },
 
   speak(message) {
