@@ -3,7 +3,7 @@ import consumer from "./consumer"
 const ordersChannel = consumer.subscriptions.create("OrdersChannel", {
   connected() {
     // Called when the subscription is ready for use on the server
-    console.log("Connected to the chat room!");
+    console.log("Connected to the orders channel!");
   },
 
   disconnected() {
@@ -11,11 +11,13 @@ const ordersChannel = consumer.subscriptions.create("OrdersChannel", {
   },
 
   received(data) {
-    $('#messages').append('<p class="received"> ' + data.message + '</p>')
+    $('#order-reciever').append('<p class="received"> ' + data.message + '</p>');
+    console.log ("received message: " + data.message);
   },
 
   speak(message) {
-    this.perform('speak', { message: message })
+    this.perform('speak', { message: message });
+    console.log("sent message");
   }
 });
 

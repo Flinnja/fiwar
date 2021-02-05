@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+	mount ActionCable.server => '/cable'
+
   resources :movements do
   	get "order" => "movements#order"
   	collection do
