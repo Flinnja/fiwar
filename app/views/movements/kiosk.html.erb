@@ -1,3 +1,7 @@
+<script type="text/javascript" src="/javascript/kiosk.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
 <p id="notice" class="kiosk-notice"><%= notice %></p>
 
 <div class="kiosk-header">
@@ -6,10 +10,17 @@
 
 <div class="grid-container">
   <% @movements.each do |movement| %>
-    <div class="grid-item"
-    movement_id="<%= movement.id %>"
-    movement_display_name="<%= movement.display_name %>">
-      <%= image_tag "300px-#{(movement.img_index%12)+1}.png", class: "grid-image" %>
-    </div>
+    <a href="#order-modal" rel="modal:open">
+      <div class="grid-item"
+      movement_id="<%= movement.id %>"
+      movement_display_name="<%= movement.display_name %>">
+        <%= image_tag "300px-#{(movement.img_index%12)+1}.png", class: "grid-image" %>
+      </div>
+    </a>
   <% end %>
+</div>
+
+<div id="order-modal" class="modal">
+  <span class="modal-close">&times;</span>
+  <div class="modal-content"></div>
 </div>
