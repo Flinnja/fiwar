@@ -13,17 +13,20 @@
 }
 
 .grid-container {
+	max-width: 100%;
 	display: grid;
-	grid-template-columns: 20vw 20vw 20vw 20vw 20vw;
+	grid-template-columns: 20% 20% 20% 20% 20%;
 	margin-top: 78.4px;
 }
 
 .grid-item {
-	width: 20vw;
-	height: 20vw;
 }
 
 .grid-image {
-	width: 20vw;
-	height: 20vw;
+	background: #BBB;
+	width: 90%;
+	height: 90%;
+	margin: 5%;
+	border-radius: 3px;
+	filter: drop-shadow(0 0 1px black);
 }
