@@ -1,0 +1,29 @@
+.kiosk-header {
+	padding: 10px 16px;
+	background: #212;
+	color: #FFFFFA;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	text-align: center;
+}
+
+.kiosk-title {
+	margin: 10px;
+}
+
+.grid-container {
+	display: grid;
+	grid-template-columns: 20vw 20vw 20vw 20vw 20vw;
+	margin-top: 78.4px;
+}
+
+.grid-item {
+	width: 20vw;
+	height: 20vw;
+}
+
+.grid-image {
+	width: 20vw;
+	height: 20vw;
+}

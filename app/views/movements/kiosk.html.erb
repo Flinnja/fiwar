@@ -1,27 +1,15 @@
-<p id="notice"><%= notice %></p>
+<p id="notice" class="kiosk-notice"><%= notice %></p>
 
-<h1>Kiosk View</h1>
+<div class="kiosk-header">
+  <h1 class="kiosk-title">First it was a Rainforest</h1>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Item</th>
-      <th>Price</th>
-      <th>Time</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @movements.each do |movement| %>
-      <tr>
-        <td><%= movement.display_name %></td>
-        <td><%= movement.price %></td>
-        <td><%= movement.time %></td>
-        <td><%= movement.description %></td>
-        <td><%= link_to 'Order', movement_order_path(movement.id), remote: true %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="grid-container">
+  <% @movements.each do |movement| %>
+    <div class="grid-item"
+    movement_id="<%= movement.id %>"
+    movement_display_name="<%= movement.display_name %>">
+      <%= image_tag "300px-#{(movement.img_index%12)+1}.png", class: "grid-image" %>
+    </div>
+  <% end %>
+</div>
