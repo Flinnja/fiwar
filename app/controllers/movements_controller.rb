@@ -28,6 +28,7 @@ class MovementsController < ApplicationController
   # GET /movements/new
   def new
     @movement = Movement.new
+    @movement.img_index = Movement.count + 4
   end
 
   # GET /movements/1/edit
@@ -40,7 +41,7 @@ class MovementsController < ApplicationController
 
     respond_to do |format|
       if @movement.save
-        format.html { redirect_to @movement, notice: "Movement was successfully created." }
+        format.html { redirect_to movements_path, notice: "Movement was successfully created." }
         format.json { render :show, status: :created, location: @movement }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -79,6 +80,6 @@ class MovementsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def movement_params
-      params.require(:movement).permit(:name, :display_name, :price, :time, :description)
+      params.require(:movement).permit(:name, :display_name, :img_index, :price, :time, :description)
     end
 end

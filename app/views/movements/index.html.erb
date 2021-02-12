@@ -2,11 +2,14 @@
 
 <h1>Movements</h1>
 
+<%= link_to 'New Movement', new_movement_path %>
+
 <table>
   <thead>
     <tr>
       <th>Name</th>
       <th>Display name</th>
+      <th>Image index</th>
       <th>Price</th>
       <th>Time</th>
       <th>Description</th>
@@ -19,6 +22,7 @@
       <tr>
         <td><%= movement.name %></td>
         <td><%= movement.display_name %></td>
+        <td><%= movement.img_index %></td>
         <td><%= movement.price %></td>
         <td><%= movement.time %></td>
         <td><%= movement.description %></td>
@@ -30,6 +34,3 @@
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Movement', new_movement_path %>
