@@ -109,7 +109,6 @@ function addToAudience() {
 
 function addToTimer() {
   fulfillment_timer += move_length_seconds;
-  console.log(fulfillment_timer)
 }
 
 function updateTimer() {
