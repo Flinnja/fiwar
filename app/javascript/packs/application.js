@@ -3,6 +3,7 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
+
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
@@ -12,6 +13,7 @@ import "jquery"
 import ordersChannel from "../channels/orders_channel";
 
 $(document).on('turbolinks:load', function () {
+  /*
   $("form").on('submit', function(e){
     e.preventDefault();
     let message = $('#message').val();
@@ -20,6 +22,7 @@ $(document).on('turbolinks:load', function () {
       $('#message').val('')
     }
   });
+  */
 })
 
 Rails.start()

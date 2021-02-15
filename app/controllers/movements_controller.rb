@@ -11,7 +11,7 @@ class MovementsController < ApplicationController
 
   def order
     @movement = Movement.find(params[:movement_id])
-    ActionCable.server.broadcast "orders_channel", message = (@movement.name)
+    ActionCable.server.broadcast "orders_channel", message = (@movement)
   end
 
   # STANDARD ROUTES
