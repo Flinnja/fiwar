@@ -5,7 +5,7 @@ var audience_moves_list = [];
 var audience_moves_images = [];
 var fulfillment_timer = 10;
 var move_length_seconds = 15;
-var audience_moves_display_limit = 11;
+var audience_moves_display_limit = 10;
 
 const ordersChannel = consumer.subscriptions.create("OrdersChannel", {
   connected() {
@@ -21,7 +21,7 @@ const ordersChannel = consumer.subscriptions.create("OrdersChannel", {
     if (data.message == "Update") {
       updateMove();
     }
-      else {
+    else {
       //dirty close modal cuz its not playing nice with remote links
       if ($.modal) {
         $.modal.close();
@@ -55,11 +55,9 @@ function updateMove(){
   var foldback_current_move = foldback_moves_list[0] || "No Selection";
   var foldback_next_move = foldback_moves_list[1] || "No Selection";
   updateFoldback(foldback_current_move, foldback_next_move);
+  foldback_moves_list.shift();
 
   updateAudience();
-
-  foldback_moves_list.shift();
-  audience_moves_list.shift();
   audience_moves_images.shift();
 }
 
@@ -75,6 +73,8 @@ function addToFoldback(next_move) {
 }
 
 function updateAudience() {
+  $("#moves-list-active").html(audience_moves_list.shift());
+  //need something to move image shift
   for (var i = 0; i < audience_moves_display_limit; i++) {
     if (audience_moves_list[i]) {
       $("#moves-list-" + i).html(audience_moves_list[i]);
@@ -83,8 +83,12 @@ function updateAudience() {
       $("#moves-list-" + i).html("");
     }
   }
+
   if (audience_moves_list.length > audience_moves_display_limit) {
     $("#moves-list-extra").html(audience_moves_list.length - audience_moves_display_limit + " other orders in the queue.")
+  }
+  else {
+    $("#moves-list-extra").html("");
   }
 }
 
