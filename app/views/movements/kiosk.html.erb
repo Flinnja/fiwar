@@ -23,7 +23,7 @@
   <div id="order-modal-<%= movement.id %>" class="modal">
     <div class="modal-content">
       <span>You are ordering <b><%= movement.display_name %></b></span>
-      <span>Our fulfillment team will begin delivering your order in approximately <span class="fulfillment-timer">10</span> seconds. </span>
+      <span>Our fulfilment team will begin delivering your order in approximately <span class="fulfillment-timer">10</span> seconds. </span>
     </div>
     <%= link_to "Confirm Order", movement_order_path(movement.id), remote: true, method: :get %>
   </div>

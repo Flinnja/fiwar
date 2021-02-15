@@ -73,7 +73,13 @@ function addToFoldback(next_move) {
 }
 
 function updateAudience() {
-  $("#moves-list-active").html(audience_moves_list.shift());
+  if (audience_moves_list.length > 0){
+    $("#moves-list-active").html(audience_moves_list.shift());
+  }
+  else {
+    $("#moves-list-active").html("No active order to fulfil.");
+  }
+
   //need something to move image shift
   for (var i = 0; i < audience_moves_display_limit; i++) {
     if (audience_moves_list[i]) {
