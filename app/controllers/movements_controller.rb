@@ -6,7 +6,9 @@ class MovementsController < ApplicationController
   end
 
   def foldback
-    @movements = Movement.all
+  end
+
+  def audience
   end
 
   def order
