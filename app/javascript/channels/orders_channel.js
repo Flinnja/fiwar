@@ -3,7 +3,8 @@ import consumer from "./consumer"
 var foldback_moves_list = [];
 var audience_moves_list = [];
 var audience_moves_images = [];
-var fulfillment_timer = 10;
+var fulfillment_timer = 5;
+var fulfillment_timer_lower_limit = 5;
 var move_length_seconds = 15;
 var audience_moves_display_limit = 11;
 
@@ -109,7 +110,7 @@ function addToTimer() {
 }
 
 function updateTimer() {
-  if (fulfillment_timer > 10) {
+  if (fulfillment_timer > fulfillment_timer_lower_limit) {
     fulfillment_timer -= 1;
     $(".fulfillment-timer").each(function(){
       $(this).html(fulfillment_timer);
