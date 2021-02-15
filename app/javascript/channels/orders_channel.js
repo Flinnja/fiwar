@@ -18,27 +18,38 @@ const ordersChannel = consumer.subscriptions.create("OrdersChannel", {
   },
 
   received(data) {
-    //dirty close modal cuz its not playing nice with remote links
-    if ($.modal) {
-      $.modal.close();
+    if (data.message == "Update") {
+      updateMove();
     }
+      else {
+      //dirty close modal cuz its not playing nice with remote links
+      if ($.modal) {
+        $.modal.close();
+      }
 
-    foldback_moves_list.push(data.name);
-    audience_moves_list.push(data.display_name);
-    audience_moves_images.push(data.img_index);
-    if (foldback_moves_list.length <= 2) addToFoldback(data.name)
-    addToAudience();
-    addToTimer();
+      foldback_moves_list.push(data.name);
+      audience_moves_list.push(data.display_name);
+      audience_moves_images.push(data.img_index);
+      if (foldback_moves_list.length <= 2) addToFoldback(data.name)
+      addToAudience();
+      addToTimer();
+    }
   },
 
   speak(message) {
     this.perform("speak", { message: message });
-    console.log("sent message");
   }
 });
 
-setInterval(updateMove, move_length_seconds*1000);
+
+setInterval(syncUpdateMessage, move_length_seconds*1000);
 setInterval(updateTimer, 1000);
+
+function syncUpdateMessage(){
+  if ($("#sync-update-broadcaster").is("div")) {
+    ordersChannel.speak("Update");
+  }
+}
 
 function updateMove(){
   var foldback_current_move = foldback_moves_list[0] || "No Selection";
