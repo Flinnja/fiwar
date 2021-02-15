@@ -15,8 +15,11 @@ const ordersChannel = consumer.subscriptions.create("OrdersChannel", {
   },
 
   received(data) {
-    //$('#order-reciever').append('<p class="received"> ' + data + '</p>');
-    //console.log ("received message: " + data);
+    //dirty close modal cuz its not playing nice with remote links
+    if ($.modal) {
+      $.modal.close();
+    }
+
     foldback_moves_list.push(data.name);
     audience_moves_list.push(data.display_name);
     if (foldback_moves_list.length <= 2) addToFoldback(data.name)

@@ -25,6 +25,6 @@
     <div class="modal-content">
       You are ordering <b><%= movement.display_name %></b>
     </div>
-    <%= button_to "Confirm Order", movement_order_path(movement.id), remote: true, method: :get%>
+    <%= link_to "Confirm Order", movement_order_path(movement.id), remote: true, method: :get %>
   </div>
 <% end %>
