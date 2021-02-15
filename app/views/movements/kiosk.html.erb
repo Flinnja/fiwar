@@ -1,4 +1,3 @@
-<script type="text/javascript" src="/javascript/kiosk.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 
@@ -23,8 +22,9 @@
 <% @movements.each do |movement| %>
   <div id="order-modal-<%= movement.id %>" class="modal">
     <div class="modal-content">
-      You are ordering <b><%= movement.display_name %></b>
+      <span>You are ordering <b><%= movement.display_name %></b></span>
+      <span>Our fulfillment team will begin delivering your order in approximately <span class="fulfillment-timer">10</span> seconds. </span>
     </div>
-    <%= button_to "Confirm Order", movement_order_path(movement.id), remote: true, method: :get%>
+    <%= link_to "Confirm Order", movement_order_path(movement.id), remote: true, method: :get %>
   </div>
 <% end %>

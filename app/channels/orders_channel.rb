@@ -7,6 +7,6 @@ class OrdersChannel < ApplicationCable::Channel
 	end
 
 	def speak
-		ActionCable.server.broadcast "orders_channel", message: data['message']
+		ActionCable.server.broadcast "orders_channel", message: "Update"
 	end
 end

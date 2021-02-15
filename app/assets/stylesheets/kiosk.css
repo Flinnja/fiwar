@@ -16,7 +16,7 @@
 .grid-container {
 	max-width: 100%;
 	display: grid;
-	grid-template-columns: 20% 20% 20% 20% 20%;
+	grid-template-columns: 25% 25% 25% 25%;
 	margin-top: 78.4px;
 }
 
