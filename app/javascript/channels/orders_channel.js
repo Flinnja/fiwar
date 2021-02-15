@@ -97,17 +97,21 @@ function addToAudience() {
     $("#moves-list-" + (audience_moves_list.length - 1)).html(audience_moves_list[audience_moves_list.length - 1]);
   }
   else {
-    $("#moves-list-extra").html((audience_moves_list.length - audience_moves_display_limit) + " other orders in the queue.")
+    $("#moves-list-extra").html((audience_moves_list.length - audience_moves_display_limit) + " other orders in the queue.");
   }
 }
 
 function addToTimer() {
-  fulfillment_timer + move_length_seconds;
+  fulfillment_timer += move_length_seconds;
+  console.log(fulfillment_timer)
 }
 
 function updateTimer() {
   if (fulfillment_timer > 10) {
     fulfillment_timer -= 1;
+    $(".fulfillment-timer").each(function(){
+      $(this).html(fulfillment_timer);
+    });
   }
 }
 
