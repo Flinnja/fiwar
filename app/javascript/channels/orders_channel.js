@@ -5,7 +5,7 @@ var audience_moves_list = [];
 var audience_moves_images = [];
 var fulfillment_timer = 10;
 var move_length_seconds = 15;
-var audience_moves_display_limit = 10;
+var audience_moves_display_limit = 11;
 
 const ordersChannel = consumer.subscriptions.create("OrdersChannel", {
   connected() {
@@ -91,10 +91,7 @@ function updateAudience() {
   }
 
   if (audience_moves_list.length > audience_moves_display_limit) {
-    $("#moves-list-extra").html(audience_moves_list.length - audience_moves_display_limit + " other orders in the queue.")
-  }
-  else {
-    $("#moves-list-extra").html("");
+    $("#moves-list-10").html(audience_moves_list.length - audience_moves_display_limit + " other orders in the queue.")
   }
 }
 
@@ -103,7 +100,7 @@ function addToAudience() {
     $("#moves-list-" + (audience_moves_list.length - 1)).html(audience_moves_list[audience_moves_list.length - 1]);
   }
   else {
-    $("#moves-list-extra").html((audience_moves_list.length - audience_moves_display_limit) + " other orders in the queue.");
+    $("#moves-list-10").html((audience_moves_list.length - audience_moves_display_limit) + 1 + " other orders in the queue.");
   }
 }
 
