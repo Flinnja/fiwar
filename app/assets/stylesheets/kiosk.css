@@ -1,0 +1,37 @@
+.kiosk-header {
+	padding: 10px 16px;
+	background: #212;
+	color: #FFFFFA;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	text-align: center;
+	z-index: 1;
+}
+
+.kiosk-title {
+	margin: 10px;
+}
+
+.grid-container {
+	max-width: 100%;
+	display: grid;
+	grid-template-columns: 20% 20% 20% 20% 20%;
+	margin-top: 78.4px;
+}
+
+.grid-item {
+}
+.grid-item:hover {
+	cursor: pointer;
+}
+
+.grid-image {
+	background: #BBB;
+	width: 90%;
+	height: 90%;
+	margin: 5%;
+	border-radius: 3px;
+	filter: drop-shadow(0 0 1px black);
+}
+

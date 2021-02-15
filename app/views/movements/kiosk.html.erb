@@ -1,0 +1,30 @@
+<script type="text/javascript" src="/javascript/kiosk.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+<p id="notice" class="kiosk-notice"><%= notice %></p>
+
+<div class="kiosk-header">
+  <h1 class="kiosk-title">First it was a Rainforest</h1>
+</div>
+
+<div class="grid-container">
+  <% @movements.each do |movement| %>
+    <a href="#order-modal-<%= movement.id %>" rel="modal:open">
+      <div class="grid-item"
+      movement_id="<%= movement.id %>"
+      movement_display_name="<%= movement.display_name %>">
+        <%= image_tag "300px-#{(movement.img_index%12)+1}.png", class: "grid-image" %>
+      </div>
+    </a>
+  <% end %>
+</div>
+
+<% @movements.each do |movement| %>
+  <div id="order-modal-<%= movement.id %>" class="modal">
+    <div class="modal-content">
+      You are ordering <b><%= movement.display_name %></b>
+    </div>
+    <%= button_to "Confirm Order", movement_order_path(movement.id), remote: true, method: :get%>
+  </div>
+<% end %>
