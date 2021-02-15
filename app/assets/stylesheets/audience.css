@@ -1,3 +1,35 @@
+html {
+	height: 100vh;
+}
+
+body {
+	height: 100%;
+}
+
 #moves-list-active {
 	color: red;
+}
+
+#moves-list-container {
+	height: 100%;
+}
+
+.moves-list-item {
+	padding-left: 10vw;
+	padding-right: 10vw;
+	text-align: center;
+}
+
+.moves-list-content {
+	max-width: 80vw;
+	height: 8.33vh;
+	line-height: 8.33vh;
+	font-size: 2em;
+	white-space: nowrap;
+	overflow: hidden;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
+}
+.moves-list-content:empty {
+	display: none;
 }
