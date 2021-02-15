@@ -91,7 +91,7 @@ function updateAudience() {
   }
 
   if (audience_moves_list.length > audience_moves_display_limit) {
-    $("#moves-list-10").html(audience_moves_list.length - audience_moves_display_limit + " other orders in the queue.")
+    $("#moves-list-10").html(audience_moves_list.length - audience_moves_display_limit + 1 + " other orders in the queue")
   }
 }
 
@@ -100,7 +100,7 @@ function addToAudience() {
     $("#moves-list-" + (audience_moves_list.length - 1)).html(audience_moves_list[audience_moves_list.length - 1]);
   }
   else {
-    $("#moves-list-10").html((audience_moves_list.length - audience_moves_display_limit) + 1 + " other orders in the queue.");
+    $("#moves-list-10").html((audience_moves_list.length - audience_moves_display_limit) + 1 + " other orders in the queue");
   }
 }
 
