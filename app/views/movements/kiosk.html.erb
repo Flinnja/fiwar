@@ -4,6 +4,7 @@
 
 <div class="kiosk-header">
   <h1 class="kiosk-title">First it was a Rainforest</h1>
+  <h4 class="kiosk-instructions">tap your selection to make an order</h4>
 </div>
 
 <div class="grid-container">
@@ -21,9 +22,9 @@
 <% @movements.each do |movement| %>
   <div id="order-modal-<%= movement.id %>" class="modal">
     <div class="modal-content">
-      <span>You are ordering <b><%= movement.display_name %></b></span>
-      <span>Our fulfilment team will begin delivering your order in approximately <span class="fulfillment-timer">5</span> seconds. </span>
+      <span class="modal-order-line">You are ordering <b><%= movement.display_name %></b></span>
+      <span class="modal-order-time">Our fulfilment team will begin delivering your order in approximately <span class="fulfillment-timer">5</span> seconds. </span>
+      <%= link_to "Confirm Order", movement_order_path(movement.id), remote: true, method: :get, class: "modal-order-link" %>
     </div>
-    <%= link_to "Confirm Order", movement_order_path(movement.id), remote: true, method: :get %>
   </div>
 <% end %>

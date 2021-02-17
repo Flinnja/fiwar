@@ -9,9 +9,17 @@
 	width: 100%;
 	text-align: center;
 	z-index: 1;
+	font-family: Futura, sans-serif;
+	font-weight: 100;
 }
 
 .kiosk-title {
+	margin: 10px;
+	font-size: 2.5em;
+}
+
+.kiosk-instructions{
+	font-size: 1em;
 	margin: 10px;
 }
 
@@ -19,7 +27,7 @@
 	max-width: 100%;
 	display: grid;
 	grid-template-columns: 25% 25% 25% 25%;
-	margin-top: 78.4px;
+	margin-top: 124px;
 }
 
 .grid-item {
@@ -37,3 +45,29 @@
 	filter: drop-shadow(0 0 1px black);
 }
 
+.modal-content {
+	text-align: center;
+	font-size: 20px;
+	padding: 15px;
+}
+
+.modal-order-line {
+	margin-bottom: 10px;
+}
+
+.modal-order-time {
+	margin-bottom: 30px;
+}
+
+.modal-order-link {
+	background: #E40087;
+	padding: 15px;
+	border-radius: 3px;
+	color: white;
+	text-decoration: none;
+	font-family: futura, sans-serif;
+}
+
+.modal-order-link:active {
+	background: #A00043;
+}

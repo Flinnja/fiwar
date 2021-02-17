@@ -22,6 +22,9 @@ body {
 }
 
 .moves-list-content {
+	font-family: Futura, sans-serif;
+	font-weight: 100;
+
 	box-sizing: border-box;
 	width: 100vw;
 	height: 8.33vh;
