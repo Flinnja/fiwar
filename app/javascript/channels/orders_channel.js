@@ -26,6 +26,7 @@ const ordersChannel = consumer.subscriptions.create("OrdersChannel", {
       //dirty close modal cuz its not playing nice with remote links
       if ($.modal) {
         $.modal.close();
+        console.log("closing modal");
       }
 
       foldback_moves_list.push(data.name);

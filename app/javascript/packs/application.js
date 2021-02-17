@@ -9,7 +9,6 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "jquery"
-import "packs/jquery_modal_min"
 
 import ordersChannel from "../channels/orders_channel";
 
