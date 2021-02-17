@@ -4,8 +4,8 @@ var foldback_moves_list = [];
 var audience_moves_list = [];
 var audience_moves_images = [];
 var fulfillment_timer = 5;
-var fulfillment_timer_lower_limit = 5;
-var move_length_seconds = 15;
+var fulfillment_timer_lower_limit = fulfillment_timer;
+var move_length_seconds = 8;
 var audience_moves_display_limit = 11;
 
 const ordersChannel = consumer.subscriptions.create("OrdersChannel", {
