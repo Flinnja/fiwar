@@ -86,7 +86,7 @@ function updateAudience() {
     $("#moves-list-active").html(audience_moves_list.shift());
   }
   else {
-    $("#moves-list-active").html("No active order to fulfil.");
+    $("#moves-list-active").html("Please make an order at the tablet");
   }
 
   //need something to move image shift
