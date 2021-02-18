@@ -24,6 +24,7 @@ body {
 .moves-list-content {
 	font-family: Futura, sans-serif;
 	font-weight: 100;
+	font-size: 3em;
 
 	box-sizing: border-box;
 	width: 100vw;
@@ -34,7 +35,6 @@ body {
 	border-width: 2px 0px 0px 0px;
 	border-style: solid;
 	border-color: #999;
-	font-size: 2em;
 	white-space: nowrap;
 	overflow: hidden;
 	overflow-x: hidden;

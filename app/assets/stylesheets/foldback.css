@@ -34,6 +34,8 @@
 	line-height: 20vh;
 	padding: 15px;
 	background: #DDD;
+
+	display: none;
 }
 
 span {
