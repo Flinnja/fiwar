@@ -32,7 +32,7 @@ const ordersChannel = consumer.subscriptions.create("OrdersChannel", {
       foldback_moves_list.push(data.name);
       audience_moves_list.push(data.display_name);
       audience_moves_images.push(data.img_index);
-      if (foldback_moves_list.length <= 2) addToFoldback(data.name)
+      addToFoldback(data.name)
       addToAudience();
       addToTimer();
     }
@@ -57,6 +57,7 @@ function updateMove(){
   var foldback_current_move = foldback_moves_list[0] || "No Selection";
   var foldback_next_move = foldback_moves_list[1] || "No Selection";
   updateFoldback(foldback_current_move, foldback_next_move);
+  $("#move-amount").html(foldback_moves_list.length);
   foldback_moves_list.shift();
 
   updateAudience();
@@ -71,6 +72,12 @@ function updateFoldback(current_move, next_move) {
 function addToFoldback(next_move) {
   if ($("#next-move").html() == "No Selection") {
     $("#next-move").html(next_move);
+  }
+  if ($("#current-move").html() == "No Selection") {
+    $("#move-amount").html(foldback_moves_list.length);
+  }
+  else {
+    $("#move-amount").html(foldback_moves_list.length+1);
   }
 }
 

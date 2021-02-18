@@ -8,6 +8,7 @@
 }
 
 #next-move-container {
+	text-align: center;
 	position: absolute;
 	z-index: 50;
 	top: 0;
@@ -19,6 +20,20 @@
 	background: #DDD;
 
 	font-size: 2em;
+}
+
+#move-amount-container {
+	text-align: center;
+	font-size: 5em;
+	position: absolute;
+	z-index: 50;
+	bottom: 0;
+	left: 0;
+	width: 20vw;
+	min-height: 20vh;
+	line-height: 20vh;
+	padding: 15px;
+	background: #DDD;
 }
 
 span {
