@@ -13,7 +13,11 @@
       <div class="grid-item"
       movement_id="<%= movement.id %>"
       movement_display_name="<%= movement.display_name %>">
-        <%= image_tag "300px-#{(movement.img_index%12)+1}.png", class: "grid-image" %>
+        <% if ActionController::Base.helpers.resolve_asset_path("animations/#{movement.img_index}.gif") %>
+          <%= image_tag "/assets/animations/#{movement.img_index}.gif", class: "grid-image" %>
+        <% else %>
+          <%= image_tag "300px-#{(movement.img_index%12)+1}.png", class: "grid-image" %>
+        <% end %>
       </div>
     </a>
   <% end %>
