@@ -9,7 +9,7 @@ var move_length_seconds = 8;
 var audience_moves_display_limit = 11;
 
 $(document).ready(function(){
-  $(".modal-order-link").click(function(){
+  $(".modal-order-link").on("click touch", function(){
     $.modal.close();
   });
 });
