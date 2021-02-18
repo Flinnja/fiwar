@@ -8,6 +8,12 @@ var fulfillment_timer_lower_limit = fulfillment_timer;
 var move_length_seconds = 8;
 var audience_moves_display_limit = 11;
 
+$(document).ready(function(){
+  $(".modal-order-link").click(function(){
+    $.modal.close();
+  });
+});
+
 const ordersChannel = consumer.subscriptions.create("OrdersChannel", {
   connected() {
     // Called when the subscription is ready for use on the server
@@ -23,12 +29,6 @@ const ordersChannel = consumer.subscriptions.create("OrdersChannel", {
       updateMove();
     }
     else {
-      //dirty close modal cuz its not playing nice with remote links
-      if ($.modal) {
-        $.modal.close();
-        console.log("closing modal");
-      }
-
       foldback_moves_list.push(data.name);
       audience_moves_list.push(data.display_name);
       audience_moves_images.push(data.img_index);

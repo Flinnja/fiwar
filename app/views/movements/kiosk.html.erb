@@ -16,7 +16,7 @@
         <% if ActionController::Base.helpers.resolve_asset_path("animations/#{movement.img_index}.gif") %>
           <%= image_tag "/assets/animations/#{movement.img_index}.gif", class: "grid-image img-selector-#{i%9}" %>
         <% else %>
-          <%= image_tag "300px-#{(movement.img_index%12)+1}.png", class: "grid-image" %>
+          <%= image_tag "300px-#{(movement.img_index%12)+1}.png", class: "grid-image img-selector-#{i%9}" %>
         <% end %>
       </div>
     </a>
