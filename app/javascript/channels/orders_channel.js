@@ -118,10 +118,27 @@ function addToTimer() {
 }
 
 function updateTimer() {
+  var timer_minutes = Math.floor(fulfillment_timer / 60);
+  var timer_seconds = fulfillment_timer - (timer_minutes * 60);
+  var timer_message = "";
+  if (timer_minutes > 1){
+    timer_message = timer_minutes + " minutes and ";
+  }
+  else if (timer_minutes == 1){
+    timer_message = "1 minute and ";
+  }
+
+  if (timer_seconds == 1){
+    timer_message = timer_message + "1 second";
+  }
+  else {
+    timer_message = timer_message + timer_seconds + " seconds";
+  }
+
   if (fulfillment_timer > fulfillment_timer_lower_limit) {
     fulfillment_timer -= 1;
     $(".fulfillment-timer").each(function(){
-      $(this).html(fulfillment_timer);
+      $(this).html(timer_message);
     });
   }
 }
