@@ -153,6 +153,7 @@ function addRandomMove() {
     console.log("adding random move index " + random_index);
     var native_element = $(".modal-order-link").eq(random_index)[0];
     Rails.handleRemote.call(native_element);
+    addToTimer();
   }
 }
 
