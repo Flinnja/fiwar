@@ -1,4 +1,6 @@
-import consumer from "./consumer"
+import consumer from "./consumer";
+import Rails from '@rails/ujs';
+Rails.start();
 
 var foldback_moves_list = [];
 var audience_moves_list = [];
@@ -7,6 +9,7 @@ var fulfillment_timer = 5;
 var fulfillment_timer_lower_limit = fulfillment_timer;
 var move_length_seconds = 8;
 var audience_moves_display_limit = 11;
+var random_move_timer = 32;
 
 $(document).ready(function(){
   $(".modal-order-link").on("click touch", function(){
@@ -44,8 +47,9 @@ const ordersChannel = consumer.subscriptions.create("OrdersChannel", {
 });
 
 
-setInterval(syncUpdateMessage, move_length_seconds*1000);
+setInterval(syncUpdateMessage, move_length_seconds * 1000);
 setInterval(updateTimer, 1000);
+setInterval(addRandomMove, random_move_timer * 1000)
 
 function syncUpdateMessage(){
   if ($("#sync-update-broadcaster").is("div")) {
@@ -140,6 +144,15 @@ function updateTimer() {
     $(".fulfillment-timer").each(function(){
       $(this).html(timer_message);
     });
+  }
+}
+
+function addRandomMove() {
+  if ($(".kiosk-header").is("div") && audience_moves_list.length == 0) {
+    var random_index = Math.floor(Math.random() * $(".modal-order-link").length);
+    console.log("adding random move index " + random_index);
+    var native_element = $(".modal-order-link").eq(random_index)[0];
+    Rails.handleRemote.call(native_element);
   }
 }
 
