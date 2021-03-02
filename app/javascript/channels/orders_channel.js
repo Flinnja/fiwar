@@ -10,6 +10,7 @@ var fulfillment_timer_lower_limit = fulfillment_timer;
 var move_length_seconds = 8;
 var audience_moves_display_limit = 11;
 var random_move_timer = 32;
+var time_since_order = 0;
 
 $(document).ready(function(){
   $(".modal-order-link").on("click touch", function(){
@@ -35,6 +36,7 @@ const ordersChannel = consumer.subscriptions.create("OrdersChannel", {
       foldback_moves_list.push(data.name);
       audience_moves_list.push(data.display_name);
       audience_moves_images.push(data.img_index);
+      time_since_order = 0;
       addToFoldback(data.name)
       addToAudience();
       addToTimer();
@@ -49,7 +51,7 @@ const ordersChannel = consumer.subscriptions.create("OrdersChannel", {
 
 setInterval(syncUpdateMessage, move_length_seconds * 1000);
 setInterval(updateTimer, 1000);
-setInterval(addRandomMove, random_move_timer * 1000)
+setInterval(addRandomMove, 1000)
 
 function syncUpdateMessage(){
   if ($("#sync-update-broadcaster").is("div")) {
@@ -122,6 +124,7 @@ function addToTimer() {
 }
 
 function updateTimer() {
+  time_since_order++;
   var timer_minutes = Math.floor(fulfillment_timer / 60);
   var timer_seconds = fulfillment_timer - (timer_minutes * 60);
   var timer_message = "";
@@ -148,12 +151,13 @@ function updateTimer() {
 }
 
 function addRandomMove() {
-  if ($(".kiosk-header").is("div") && audience_moves_list.length == 0) {
+  if ($(".kiosk-header").is("div") && (time_since_order > random_move_timer)) {
     var random_index = Math.floor(Math.random() * $(".modal-order-link").length);
     console.log("adding random move index " + random_index);
     var native_element = $(".modal-order-link").eq(random_index)[0];
     Rails.handleRemote.call(native_element);
     addToTimer();
+    time_since_order = 0;
   }
 }
 
